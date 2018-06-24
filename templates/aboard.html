@@ -18,9 +18,10 @@
         <link href="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}" rel="stylesheet">
 
     </head>     
-    <body id="page-top">        
-    <!-- Navigation -->
-     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+
+    <body id="page-top"> 
+
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="/">internet bank4</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,60 +56,14 @@
       </div>
     </nav>
 
-        <legend style="margin-top: 100px;"> 
-        <section id="contact">
-            <div class="container">          
-            <div class="row centered-form">
-                <div class="col-xs-12 col-sm-8 col-md-12 col-sm-offset-2 col-md-offset-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="text-center text-uppercase text-secondary mb-0">Register Member</h3>
-                        </div>
-                            <div class="panel-body">
-                                {% with messages = get_flashed_messages() %}
-                                {% if messages %}
-                                {% for message in messages %}
-                                <p>{{message}}</p>
-                                {% endfor %}
-                                {% endif %}
-                                {% endwith %}
-                                <form role="form" action="/register" method='post' class="register_form">
-                                    <div class="row"><!-- first name and last_name-->
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group"><!-- first_name -->
-                                                <input type="text" name="name" id="name" class="form-control input-sm floatlabel" placeholder="Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group"><!-- last_name -->
-                                                <input type="text" name="id" id="id" class="form-control input-sm" placeholder="id">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group"><!-- email -->
-                                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-6 col-sm-6 col-md-6"><!-- passsword -->
-                                            <div class="form-group">
-                                                <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group"><!-- password confirm -->
-                                                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <input type="submit" value="Register" class="btn btn-info btn-block">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>             
-            </div>
-        </legend>
-  
+
+    <div class="content">
+    </div>
+    <div class="content text-center " style="margin-top: 200px;">
+        <a href="/aboard_transfer"> transfer</a>
+        <a href="/exchange"> exchange</a>
+
+    </div>
 
 <!-- Footer --> 
 <footer class="footer text-center"> 
@@ -161,4 +116,5 @@
 <link href="{{url_for('static', filename='js/freelancer.min.js')}}" rel="stylesheet">
 
 </body>
+
 </html>

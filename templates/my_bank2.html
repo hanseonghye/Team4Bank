@@ -18,9 +18,10 @@
         <link href="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}" rel="stylesheet">
 
     </head>     
-    <body id="page-top">        
-    <!-- Navigation -->
-     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+
+    <body id="page-top"> 
+
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="/">internet bank4</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,17 +35,17 @@
               <div>
               <a href="/login">login</a>
               </div>
-                  </li>
-            <li class="nav-item mx-0 mx-lg-1">
+            </li>
+      <li class="nav-item mx-0 mx-lg-1">
               <a href="/logout">logout</a>
             </li>
-             <li class="nav-item mx-0 mx-lg-1">
+       <li class="nav-item mx-0 mx-lg-1">
               <a href="mybank">mybank</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
               <a href="/loan">loan</a>
             </li>
-            <li class="nav-item mx-0 mx-lg-1">
+      <li class="nav-item mx-0 mx-lg-1">
               <a href="/change_money">exchange</a>
             </li>
       <li class="nav-item mx-0 mx-lg-1">
@@ -55,60 +56,20 @@
       </div>
     </nav>
 
-        <legend style="margin-top: 100px;"> 
-        <section id="contact">
-            <div class="container">          
-            <div class="row centered-form">
-                <div class="col-xs-12 col-sm-8 col-md-12 col-sm-offset-2 col-md-offset-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="text-center text-uppercase text-secondary mb-0">Register Member</h3>
-                        </div>
-                            <div class="panel-body">
-                                {% with messages = get_flashed_messages() %}
-                                {% if messages %}
-                                {% for message in messages %}
-                                <p>{{message}}</p>
-                                {% endfor %}
-                                {% endif %}
-                                {% endwith %}
-                                <form role="form" action="/register" method='post' class="register_form">
-                                    <div class="row"><!-- first name and last_name-->
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group"><!-- first_name -->
-                                                <input type="text" name="name" id="name" class="form-control input-sm floatlabel" placeholder="Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group"><!-- last_name -->
-                                                <input type="text" name="id" id="id" class="form-control input-sm" placeholder="id">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group"><!-- email -->
-                                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-6 col-sm-6 col-md-6"><!-- passsword -->
-                                            <div class="form-group">
-                                                <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group"><!-- password confirm -->
-                                                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <input type="submit" value="Register" class="btn btn-info btn-block">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>             
-            </div>
-        </legend>
-  
+
+    <div class="content">
+    </div>
+    <div class="content text-center " style="margin-top: 200px;">
+        {% for account in now_accounts %}
+          <form id="account_work" action="/account_work" method='GET'> 
+            <p> Account number : <input style="border:0px" name="account" value={{account[2]}}> </p>
+            <p> Money : {{account[4]}} </p>   
+            <input type="submit" name="transfer" value="transfer">
+            <input type="submit" name="history" value="history">
+          </form>
+          <hr style="border:solid 1px;">
+        {% endfor %}
+    </div>
 
 <!-- Footer --> 
 <footer class="footer text-center"> 
@@ -161,4 +122,5 @@
 <link href="{{url_for('static', filename='js/freelancer.min.js')}}" rel="stylesheet">
 
 </body>
+
 </html>

@@ -24,11 +24,25 @@ CREATE TABLE `accountinfor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+CREATE TABLE `loan_accountinfor` (
+`num` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `id` varchar(100) NOT NULL,
+  `loan_account` varchar(100) NOT NULL,
+  `loan_money` int(11) NOT NULL DEFAULT '0',
+`date` varchar(100) NOT NULL,
+  PRIMARY KEY (num)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 alter table accountinfor add id varchar(100) NOT NULL; 
 
 insert into userinfor (name, id, pw, email) values('han', 'hans12312', 'tjdqls0826', 'hans12312@naver.com')
 
 insert into accountinfor (user, id, accountid, accountpw, money) values('han', 'hans12312', '100', '0000','1000');
+
+insert into loan_accountinfor (name, id, loan_account, loan_money, date) values('han', 'hans12312', 'a', '5000', '6-23');
+
+insert into loan_accountinfor (name, id, loan_account, loan_money, date) values('han', 'hans12312', 'b', '20430', '6-22');
 
 alter table accountinfor modify num int(11) NOT NULL AUTO_INCREMENT;
 
@@ -47,6 +61,17 @@ CREATE TABLE `transferinfor` (
   PRIMARY KEY(num)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `return_loaninfor` (
+  `num` int(11) NOT NULL AUTO_INCREMENT,
+  `date` varchar(100) NOT NULL,
+  `money` varchar(100) NOT NULL,
+  `sum` varchar(100) NOT NULL,
+  `account` varchar(100) NOT NULL,
+  `loan_account` varchar(100) NOT NULL,
+  `id` varchar(100) NOT NULL,
+  PRIMARY KEY(num)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 alter table transferinfor add sender varchar(100) NOT NULL; 
 alter table transferinfor change who receiver ;
 alter table transferinfor modify receiver varchar(100) NOT NULL;
@@ -62,4 +87,5 @@ insert into transferinfor (date, what, sender, receiver, money, receiver_sum, se
 alter table transferinfor change receiver_id receiver_account varchar(100) NOT NULL ;
 alter table transferinfor change sender_id sender_account varchar(100) NOT NULL ;
 
+alter table return_loaninfor add id varchar(100) NOT NULL;
 desc table name
