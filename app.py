@@ -450,6 +450,7 @@ def send_loan_money():
 
 @app.route("/consulting", methods=['GET'])
 def consulting():
+
 	return render_template("/consulting.html")
 
 @app.route("/email", methods=['post','get'])
@@ -478,7 +479,6 @@ def email():
     
 def send_email(senders, receiver, title,content):
     try:
-    	title="[team4bank] "+title
         mail = Mail(app)
         msg = Message(title, sender = senders, recipients = receiver)
         msg.body = content
@@ -490,18 +490,22 @@ def send_email(senders, receiver, title,content):
         pass
 
 
-@app.route('/aboard', methods=['GET'])
-def aboard():
-	return render_template("/aboard.html")
+@app.route('/change_money', methods=['POST'])
+def change_money():
+	return render_template("/change_money.html")
 
-@app.route('/exchange', methods=['GET'])
-def  exchange():
-	return render_template("/exchange.html")
+@app.route('/buy_change_money', methods=['POST'])
+def buy_change_money():
+	return render_template("/buy_change_money.html")
 
 
-@app.route('/aboard_transfer', methods=['GET'])
-def aboard_transfer():
-	return render_template("/aboard_transfer.html")
+@app.route('/show_change_money', methods=['POST'])
+def show_change_money():
+	return render_template("/show_change_money.html")
+
+@app.route('/oversea_transfer', methods=['POST'])
+def oversea_transfer():
+	return render_template("/oversea_transfer.html")
 
 
 @app.route('/ok_oversea_transfer', methods=['POST'])

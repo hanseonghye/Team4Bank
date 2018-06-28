@@ -68,7 +68,7 @@ CREATE TABLE `return_loaninfor` (
   `sum` varchar(100) NOT NULL,
   `account` varchar(100) NOT NULL,
   `loan_account` varchar(100) NOT NULL,
-  `id` varchar(100) NOT NULL,
+  `id` varchar(100) NOT NULL;
   PRIMARY KEY(num)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
